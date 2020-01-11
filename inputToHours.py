@@ -1,9 +1,12 @@
 def convertInputToHours(userInp):
 	allHoursWorked = []
 
-	for hour in userInp:
+	for workedHour in userInp:
+		hour = workedHour.replace(";", ":").replace(".", ">")
 		workedHours = hour.split(" -> ")
 		assert(len(workedHours) == 2)
+
+		isSpecialHour = False
 
 		leftTime = workedHours[0].split(":")
 		rightTime = workedHours[1].split(":")
@@ -17,11 +20,10 @@ def convertInputToHours(userInp):
 		if minutesWorked < 0:
 			minutesWorked = 60 + minutesWorked
 			leftHour += 1
+			isSpecialHour = True
 		
 		hoursWorked = rightHour - leftHour
-		if hoursWorked == 0 and (rightMin - leftMin) < 0:
-			hoursWorked = 12
-		elif hoursWorked < 0:
+		if hoursWorked < 0:
 			rightHour = 12 + rightHour
 			hoursWorked = rightHour - leftHour
 		
@@ -30,4 +32,5 @@ def convertInputToHours(userInp):
 		minsStr += str(minutesWorked)
 		timeWorked = hoursStr + "h" + minsStr + "m"
 		allHoursWorked.append(timeWorked)
+
 	return allHoursWorked
