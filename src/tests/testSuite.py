@@ -16,7 +16,7 @@ class testSuite:
             try:
                 assert(test[0] == test[1])
             except:
-                print("Error! Values were not equal: " + test[0] + " & " + test[1])
+                print("Error! Values were not equal: " + str(test[0]) + " & " + str(test[1]))
                 self.shouldStop = True
 
         if self.shouldStop:

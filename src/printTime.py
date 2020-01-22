@@ -15,3 +15,15 @@ def printTime(rawHours):
         print(userEntry + "\t=> " + timeWorked + totalUpToNowHours)
     
     print(totalTimeWorked)
+    printTotalDecimalTime(totalTimeWorked)
+
+def printTotalDecimalTime(string):
+    totalTimeWorked = string.strip("m").split("h")
+
+    minFraction = str(round(int(totalTimeWorked[1])/60, 2))
+    if minFraction.startswith("0."):  
+        minFraction = minFraction[1:]
+        
+    decimalTime = totalTimeWorked[0] + minFraction
+
+    print(decimalTime)
