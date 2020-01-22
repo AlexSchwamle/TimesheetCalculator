@@ -1,3 +1,4 @@
+@echo off
 :x
 cd src/
 cls
