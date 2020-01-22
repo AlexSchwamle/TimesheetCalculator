@@ -9,6 +9,9 @@ def printTime(rawHours):
         userEntry = rawHours[i]
         timeWorked = timesWorked[i]
 
-        print("\n\n" + userEntry + "\t=> " + timeWorked)
+        totalUpToNowHours = ""
+        if i > 0:
+            totalUpToNowHours += " => " + hourAdder.getHoursUpToIndex(timesWorked, i+1)
+        print(userEntry + "\t=> " + timeWorked + totalUpToNowHours)
     
     print(totalTimeWorked)
