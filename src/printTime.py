@@ -2,6 +2,9 @@ import inputToHours
 import hourAdder
 
 def printTime(rawHours):
+    for i in range(len(rawHours)):
+        rawHours[i] = rawHours[i].replace(";", ":").replace(".", ">")
+
     timesWorked = inputToHours.convertInputToHours(rawHours)
     totalTimeWorked = hourAdder.addHours(timesWorked)
 
