@@ -41,5 +41,5 @@ def getDecimalTime(string):
 def getTotalCash(timeWorked):
     moneyGainedHelper = getDecimalTime(timeWorked)
     moneyGained = float(moneyGainedHelper)*config.payPerHour*(1-(config.averageTaxes/100))
-    moneyGained = round(moneyGained, 3)
+    moneyGained = round(moneyGained, 4)
     return str(moneyGained)
