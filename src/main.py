@@ -16,4 +16,5 @@ if __name__ == "__main__":
         rawHours.append(userInput)
         userInput = input("Shift " + str(activeShift) + ": ")
 
+    print()
     printTime.printTime(rawHours)
