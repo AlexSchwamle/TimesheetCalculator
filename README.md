@@ -5,6 +5,4 @@ Usage: Either run ``startProgram.bat`` or run ``main.py``, then type all of the 
 
 ``:`` and ``>`` are interchangable with ``;`` and ``.`` due to a faulty keyboard.
 
-``startProgram.bat`` re-runs the program after you end it.
-
-Note that this only works with hours 0 -> 12, it is not compatible with 24h.
+Note that this only works with hours 1 -> 12, it is not compatible with 24h.
