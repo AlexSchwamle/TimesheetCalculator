@@ -18,3 +18,4 @@ if __name__ == "__main__":
 
     print()
     printTime.printTime(rawHours)
+    input("Press Enter or the upper right X to terminate script.\n")
