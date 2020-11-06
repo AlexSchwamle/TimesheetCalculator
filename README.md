@@ -1,6 +1,6 @@
 # TimesheetCalculator
 
-![Example run of calculator](/images/example-use.png)
+![Example run of calculator](images/example-use.png)
 
 Helps me calculate the hours I work into formatted hours, minutes, and totals.
 
