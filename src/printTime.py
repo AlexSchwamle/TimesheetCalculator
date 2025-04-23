@@ -3,6 +3,8 @@ import inputToHours
 import hourAdder
 
 def printTime(rawHours):
+    savedTimes = []
+
     for i in range(len(rawHours)):
         rawHours[i] = rawHours[i].replace(";", ":").replace(".", ">")
 
@@ -19,12 +21,21 @@ def printTime(rawHours):
         if i > 0:
             totalUpToNowHours += " => " + hourAdder.getHoursUpToIndex(timesWorked, i+1)
             
-
-        print(userEntry + "\t=> " + timeWorked + totalUpToNowHours + (i == 0 and "\t" or "") + "\t($" + moneyGained + ")")
+        timeWorkedStr = userEntry + "\t=> " + timeWorked + totalUpToNowHours + (i == 0 and "\t" or "") + "\t($" + moneyGained + ")"
+        print(timeWorkedStr)
+        savedTimes.append(timeWorkedStr)
     
-    print("Earned $" + getTotalCash(totalTimeWorked))
-    print("Worked " + totalTimeWorked)
+    totalEarned = "Earned $" + getTotalCash(totalTimeWorked)
+    totalTimeWorkedStr = "Worked " + totalTimeWorked
+
+    print(totalEarned)
+    print(totalTimeWorkedStr)
     printTotalDecimalTime(totalTimeWorked)
+    
+    savedTimes.append(totalEarned)
+    savedTimes.append(totalTimeWorkedStr)
+    savedTimes.append("Total decimal time: " + getDecimalTime(totalTimeWorked) + "h")
+    return savedTimes
 
 def printTotalDecimalTime(string):
     print(getDecimalTime(string) + "h")

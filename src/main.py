@@ -1,8 +1,11 @@
 import printTime
 import tests.test
+from saveTime import savePrintedTimes
 
 if __name__ == "__main__":
-    print("Enter hours worked throughout each shift in the format 5:12 -> 9:32:\n");
+    nameOfLog = input("Enter the name of the project to save this time under: ") 
+
+    print("Enter hours worked throughout each shift in the format 5:12 -> 9:32:\n")
 
     rawHours = []
     userInput = "n/a"
@@ -15,5 +18,7 @@ if __name__ == "__main__":
         userInput = input("Shift " + str(activeShift) + ": ")
 
     print()
-    printTime.printTime(rawHours)
+    printedTimes = printTime.printTime(rawHours)
+    savePrintedTimes(printedTimes, nameOfLog)
+
     input("Press Enter or the upper right X to terminate script.\n")
