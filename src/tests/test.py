@@ -1,6 +1,4 @@
-import sys
-import testSuite
-sys.path.insert(1, "../")
+import tests.testSuite as testSuite
 import inputToHours
 import hourAdder
 

@@ -1,7 +1,5 @@
-import sys
 import printTime
-sys.path.insert(1, "tests/")
-import test
+import tests.test
 
 if __name__ == "__main__":
     print("Enter hours worked throughout each shift in the format 5:12 -> 9:32:\n");
