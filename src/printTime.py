@@ -15,17 +15,18 @@ def printTime(rawHours):
         userEntry = rawHours[i]
         timeWorked = timesWorked[i]
 
-        moneyGained = getTotalCash(timeWorked)
+        moneyGainedBeforeTaxes, moneyGainedAfterTaxes = getTotalCash(timeWorked)
 
         totalUpToNowHours = ""
         if i > 0:
             totalUpToNowHours += " => " + hourAdder.getHoursUpToIndex(timesWorked, i+1)
             
-        timeWorkedStr = userEntry + "\t=> " + timeWorked + totalUpToNowHours + (i == 0 and "\t" or "") + "\t($" + moneyGained + ")"
+        timeWorkedStr = userEntry + "\t=> " + timeWorked + totalUpToNowHours + (i == 0 and "\t" or "") + "\t(Gross $" + moneyGainedBeforeTaxes + ", Net $" + moneyGainedAfterTaxes + ")"
         print(timeWorkedStr)
         savedTimes.append(timeWorkedStr)
     
-    totalEarned = "Earned $" + getTotalCash(totalTimeWorked)
+    totalCashEarnedBeforeTaxes, totalCashEarnedAfterTaxes = getTotalCash(totalTimeWorked)
+    totalEarned = f"Total earned: Gross ${totalCashEarnedBeforeTaxes}, Net ${totalCashEarnedAfterTaxes}"
     totalTimeWorkedStr = "Worked " + totalTimeWorked
 
     print(totalEarned)
@@ -51,6 +52,6 @@ def getDecimalTime(string):
     
 def getTotalCash(timeWorked):
     moneyGainedHelper = getDecimalTime(timeWorked)
-    moneyGained = float(moneyGainedHelper)*config.payPerHour*(1-(config.averageTaxes/100))
-    moneyGained = round(moneyGained, 2)
-    return str(moneyGained)
+    moneyGainedBeforeTaxes = round(float(moneyGainedHelper) * config.payPerHour, 2)
+    moneyGainedAfterTaxes = round(moneyGainedBeforeTaxes * (1 - (config.averageTaxes / 100)), 2)
+    return str(moneyGainedBeforeTaxes), str(moneyGainedAfterTaxes)
