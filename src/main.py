@@ -22,6 +22,7 @@ def run():
     savePrintedTimes(printedTimes, nameOfLog)
 
     input("Press Enter or the upper right X to terminate script.\n")
+    print("-"*80)
 
 if __name__ == "__main__":
     try:
